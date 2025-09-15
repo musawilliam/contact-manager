@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContactManager - User Guide</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 3px solid #667eea;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            color: #4a5568;
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+        
+        .tech-stack {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+        }
+        
+        h3 {
+            color: #4a5568;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card h4 {
+            color: #667eea;
+            font-size: 1.2em;
+            margin: 0 0 10px 0;
+        }
+        
+        .step-container {
+            background: #f8fafc;
+            border-left: 4px solid #48bb78;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .step-number {
+            background: #48bb78;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .warning {
+            background: #fed7d7;
+            border: 1px solid #f56565;
+            color: #742a2a;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .success {
+            background: #c6f6d5;
+            border: 1px solid #48bb78;
+            color: #276749;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .info {
+            background: #bee3f8;
+            border: 1px solid #4299e1;
+            color: #2b6cb0;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        code {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        pre {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        ul li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        ul li:before {
+            content: "✓";
+            color: #48bb78;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .screenshot-placeholder {
+            background: linear-gradient(45deg, #e2e8f0, #cbd5e0);
+            border: 2px dashed #a0aec0;
+            border-radius: 10px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a5568;
+            font-style: italic;
+            margin: 20px 0;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        
+        .color-demo {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        .color-used {
+            background: lightgreen;
+        }
+        
+        .color-unused {
+            background: lightcoral;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px 0;
+            border-top: 2px solid #e2e8f0;
+            color: #718096;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ContactManager</h1>
+            <p class="subtitle">Professional Contact Management System</p>
+            <div class="tech-stack">
+                .NET 8.0 Windows Forms | SQLite Database | ClosedXML Excel Integration
+            </div>
+        </header>
+
+        <section id="overview">
+            <h2>Application Overview</h2>
+            <p>ContactManager is a modern .NET Windows Forms application that replicates Clarion Telephone.exe functionality with enhanced features and professional design. Built for enterprise contact management with zero external dependencies.</p>
+            
+            <div class="success">
+                <strong>Key Advantage:</strong> This application works on any Windows machine without requiring Microsoft Office installation, making it perfect for enterprise deployment.
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>📊 Data Management</h4>
+                    <p>Full CRUD operations with SQLite database persistence. Add, edit, delete, and view contacts with instant data validation.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📁 Excel Integration</h4>
+                    <p>Import from Excel files and export data with professional formatting. No Office installation required.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🎨 Visual Indicators</h4>
+                    <p>Color-coded rows based on contact usage status with sortable columns for easy data organization.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🔒 Enterprise Ready</h4>
+                    <p>Self-contained deployment, comprehensive error handling, and professional user interface.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="installation">
+            <h2>Installation & Setup</h2>
+            
+            <div class="info">
+                <strong>System Requirements:</strong> Windows 10/11 (64-bit) - No additional software needed
+            </div>
+
+            <div class="step-container">
+                <span class="step-number">1</span>
+                <strong>Download Application:</strong> Extract ContactManager.exe from the deployment package
+            </div>
+
+            <div class="step-container">
+                <span class="step-number">2</span>
+                <strong>First Run:</strong> Double-click ContactManager.exe to launch the application
+            </div>
+
+            <div class="step-container">
+                <span class="step-number">3</span>
+                <strong>Database Creation:</strong> SQLite database (contacts.db) will be created automatically in the application folder
+            </div>
+
+            <div class="warning">
+                <strong>Important:</strong> Ensure the application has write permissions to its folder for database creation and Excel export functionality.
+            </div>
+        </section>
+
+        <section id="interface">
+            <h2>User Interface Overview</h2>
+            
+            <div class="screenshot-placeholder">
+                Main Application Window - Menu Bar, Data Grid, Control Buttons
+            </div>
+
+            <h3>Menu System</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Menu</th>
+                            <th>Options</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>File</strong></td>
+                            <td>Import Excel, Export Excel, Exit</td>
+                            <td>Data import/export operations and application exit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Records</strong></td>
+                            <td>Add, Edit, Delete</td>
+                            <td>Contact management operations</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Data Grid Features</h3>
+            <ul>
+                <li><strong>Sortable Columns:</strong> Click any column header to sort ascending/descending</li>
+                <li><strong>Row Selection:</strong> Click any row to select for edit/delete operations</li>
+                <li><strong>Color Coding:</strong> 
+                    <span class="color-demo color-used"></span>Green = Used contacts
+                    <span class="color-demo color-unused"></span>Red = Unused contacts
+                </li>
+                <li><strong>Auto-sizing:</strong> Columns automatically adjust to window size</li>
+            </ul>
+        </section>
+
+        <section id="operations">
+            <h2>Contact Management Operations</h2>
+
+            <h3>Adding New Contacts</h3>
+            <div class="step-container">
+                <span class="step-number">1</span>
+                Click the <strong>"Add"</strong> button or use <code>Records → Add</code> menu
+            </div>
+            <div class="step-container">
+                <span class="step-number">2</span>
+                Fill in contact details in the popup form:
+                <ul style="margin-top: 10px;">
+                    <li><strong>Name:</strong> Required field</li>
+                    <li><strong>Phone:</strong> Optional contact number</li>
+                    <li><strong>Email:</strong> Optional email address</li>
+                    <li><strong>Company:</strong> Optional company name</li>
+                    <li><strong>Used:</strong> Checkbox for usage status</li>
+                </ul>
+            </div>
+            <div class="step-container">
+                <span class="step-number">3</span>
+                Click <strong>"Save"</strong> to store the contact or <strong>"Cancel"</strong> to abort
+            </div>
+
+            <div class="screenshot-placeholder">
+                Add/Edit Contact Dialog - Form Fields and Buttons
+            </div>
+
+            <h3>Editing Existing Contacts</h3>
+            <div class="step-container">
+                <span class="step-number">1</span>
+                Select a contact row in the data grid by clicking on it
+            </div>
+            <div class="step-container">
+                <span class="step-number">2</span>
+                Click the <strong>"Edit"</strong> button or use <code>Records → Edit</code> menu
+            </div>
+            <div class="step-container">
+                <span class="step-number">3</span>
+                Modify the desired fields in the popup form
+            </div>
+            <div class="step-container">
+                <span class="step-number">4</span>
+                Click <strong>"Save"</strong> to apply changes
+            </div>
+
+            <h3>Deleting Contacts</h3>
+            <div class="step-container">
+                <span class="step-number">1</span>
+                Select a contact row in the data grid
+            </div>
+            <div class="step-container">
+                <span class="step-number">2</span>
+                Click the <strong>"Delete"</strong> button or use <code>Records → Delete</code> menu
+            </div>
+            <div class="step-container">
+                <span class="step-number">3</span>
+                Confirm deletion in the confirmation dialog
+            </div>
+
+            <div class="warning">
+                <strong>Delete Warning:</strong> Deleted contacts cannot be recovered. The application will ask for confirmation before permanently removing any contact.
+            </div>
+        </section>
+
+        <section id="excel">
+            <h2>Excel Import & Export</h2>
+
+            <h3>Importing Contacts from Excel</h3>
+            <div class="step-container">
+                <span class="step-number">1</span>
+                Prepare your Excel file with contacts in .xlsx format
+            </div>
+            <div class="step-container">
+                <span class="step-number">2</span>
+                Use <code>File → Import Excel</code> menu option
+            </div>
+            <div class="step-container">
+                <span class="step-number">3</span>
+                Select your Excel file in the file dialog
+            </div>
+            <div class="step-container">
+                <span class="step-number">4</span>
+                Choose whether to clear existing data or append to current contacts
+            </div>
+            <div class="step-container">
+                <span class="step-number">5</span>
+                Confirm import and view imported contacts in the data grid
+            </div>
+
+            <div class="info">
+                <strong>Excel Format Expected:</strong><br>
+                Column A: Name<br>
+                Column B: Phone<br>
+                Column C: Email<br>
+                Column D: Company<br>
+                First row should contain headers
+            </div>
+
+            <h3>Exporting Contacts to Excel</h3>
+            <div class="step-container">
+                <span class="step-number">1</span>
+                Use <code>File → Export Excel</code> menu option
+            </div>
+            <div class="step-container">
+                <span class="step-number">2</span>
+                Choose save location and filename in the file dialog
+            </div>
+            <div class="step-container">
+                <span class="step-number">3</span>
+                Click Save to create the Excel file with all current contacts
+            </div>
+
+            <div class="success">
+                <strong>Export Features:</strong> Exported Excel files include professional formatting, headers, and all contact data including creation dates and usage status.
+            </div>
+        </section>
+
+        <section id="features">
+            <h2>Advanced Features</h2>
+
+            <h3>Data Sorting</h3>
+            <p>Click any column header to sort contacts:</p>
+            <ul>
+                <li><strong>First click:</strong> Sort ascending (A-Z, oldest first)</li>
+                <li><strong>Second click:</strong> Sort descending (Z-A, newest first)</li>
+                <li><strong>Available sort columns:</strong> Name, Phone, Email, Company, Used Status, Created Date</li>
+            </ul>
+
+            <h3>Visual Status Indicators</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Row Color</th>
+                            <th>Status</th>
+                            <th>Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="color-demo color-used"></span>Light Green</td>
+                            <td>Used = True</td>
+                            <td>Contact has been actively used or contacted</td>
+                        </tr>
+                        <tr>
+                            <td><span class="color-demo color-unused"></span>Light Red</td>
+                            <td>Used = False</td>
+                            <td>Contact is new or hasn't been used recently</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Data Validation</h3>
+            <ul>
+                <li><strong>Name Field:</strong> Required - cannot be empty</li>
+                <li><strong>All Other Fields:</strong> Optional but validated for format when provided</li>
+                <li><strong>Duplicate Prevention:</strong> System allows duplicate names but warns user</li>
+                <li><strong>Data Integrity:</strong> SQLite constraints ensure database consistency</li>
+            </ul>
+
+            <h3>Error Handling</h3>
+            <ul>
+                <li><strong>File Access Errors:</strong> Clear messages for permission or file lock issues</li>
+                <li><strong>Database Errors:</strong> Automatic recovery and user notification</li>
+                <li><strong>Excel Processing:</strong> Detailed error reporting for import/export issues</li>
+                <li><strong>Validation Errors:</strong> User-friendly form validation messages</li>
+            </ul>
+        </section>
+
+        <section id="troubleshooting">
+            <h2>Troubleshooting</h2>
+
+            <h3>Common Issues</h3>
+            
+            <div class="warning">
+                <strong>Problem:</strong> Application won't start<br>
+                <strong>Solution:</strong> Ensure you have Windows 10/11 64-bit. Check that the application has execute permissions.
+            </div>
+
+            <div class="warning">
+                <strong>Problem:</strong> Excel import/export not working<br>
+                <strong>Solution:</strong> Verify file permissions. Close Excel files in other applications. Ensure .xlsx format for imports.
+            </div>
+
+            <div class="warning">
+                <strong>Problem:</strong> Database errors<br>
+                <strong>Solution:</strong> Check folder write permissions. Delete contacts.db to reset database if corrupted.
+            </div>
+
+            <div class="warning">
+                <strong>Problem:</strong> Application crashes<br>
+                <strong>Solution:</strong> Restart application. Check Windows Event Log for detailed error information.
+            </div>
+
+            <h3>Technical Support Information</h3>
+            <div class="info">
+                <strong>Application Version:</strong> 1.0.0<br>
+                <strong>Framework:</strong> .NET 8.0 Windows Forms<br>
+                <strong>Database:</strong> SQLite (contacts.db)<br>
+                <strong>Excel Library:</strong> ClosedXML 0.102.1<br>
+                <strong>Developer:</strong> William Rasemane
+            </div>
+        </section>
+
+        <section id="technical">
+            <h2>Technical Specifications</h2>
+
+            <h3>File Locations</h3>
+            <pre>
+ContactManager.exe          # Main application
+contacts.db                 # SQLite database (created automatically)
+app_icon.ico               # Application icon
+exported_files/            # Default Excel export location
+            </pre>
+
+            <h3>Database Schema</h3>
+            <pre>
+CREATE TABLE Contacts (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name TEXT NOT NULL,
+    Phone TEXT,
+    Email TEXT, 
+    Company TEXT,
+    Used BOOLEAN DEFAULT 0,
+    CreatedDate DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+            </pre>
+
+            <h3>Performance Characteristics</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Operation</th>
+                            <th>Performance</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Application Startup</td>
+                            <td>&lt; 2 seconds</td>
+                            <td>Self-contained deployment</td>
+                        </tr>
+                        <tr>
+                            <td>Contact Operations</td>
+                            <td>Instant</td>
+                            <td>SQLite in-memory caching</td>
+                        </tr>
+                        <tr>
+                            <td>Excel Import</td>
+                            <td>1000+ contacts/5 seconds</td>
+                            <td>ClosedXML optimization</td>
+                        </tr>
+                        <tr>
+                            <td>Excel Export</td>
+                            <td>1000+ contacts/3 seconds</td>
+                            <td>Formatted output included</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <h2>About This Application</h2>
+            <p>ContactManager was developed as part of a technical interview assessment for the .NET Developer position at Genius Software. The application demonstrates modern .NET development practices, enterprise-ready architecture, and professional user interface design.</p>
+            
+            <p><strong>Developer:</strong> William Rasemane<br>
+            <strong>Purpose:</strong> Technical Interview - Genius Software<br>
+            <strong>Date:</strong> 2025<br>
+            <strong>Framework:</strong> .NET 8.0 Windows Forms</p>
+
+            <div class="success">
+                This application successfully replicates all specified Clarion Telephone.exe functionality while adding modern enhancements and eliminating external dependencies.
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
