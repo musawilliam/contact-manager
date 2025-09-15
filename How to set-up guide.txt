@@ -1,0 +1,8 @@
+Welcome to the Contact Manager Application:
+
+To set-up the app to work do the following:
+
+1.unzip ContactManager.zip
+2. run as Administrator for the ContactManager.exe
+
+Thank you.

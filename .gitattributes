@@ -1,0 +1,17 @@
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.exe filter=lfs diff=lfs merge=lfs -text
+
+# Create .gitignore file
+
+*.zip
+*.rar
+*.7z
+bin/
+obj/
+.vs/
+packages/
+*.user
+*.suo
+*.cache
+contacts.db
+*.db" 
